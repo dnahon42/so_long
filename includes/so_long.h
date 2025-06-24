@@ -23,7 +23,6 @@
 
 typedef struct s_data
 {
-	// Player
 	void	*player;
 	int		player_width;
 	int		player_height;
@@ -31,7 +30,6 @@ typedef struct s_data
 	int		y;
 	int		player_found;
 
-	// Enemy
 	void	*enemy;
 	int		enemy_width;
 	int		enemy_height;
@@ -39,39 +37,26 @@ typedef struct s_data
 	int		enemy_y;
 	int		enemy_on_collectible;
 
-	// Wall
 	void	*wall;
 	int		wall_width;
 	int		wall_height;
 
-	// Exit
 	void	*exit;
 	void	*exit_opened;
 	int		exit_width;
 	int		exit_height;
 	int		exit_found;
 
-	// Floor
 	void	*floor;
 	int		floor_width;
 	int		floor_height;
 
-	// Collectibles
 	void	*collectible;
 	int		collectible_width;
 	int		collectible_height;
 	int		collected_items;
 	int		total_collectibles;
 	int		collectibles_found;
-
-	// Minigame
-
-	int		minigame_active;
-	char	**minigame_map;
-	int		minigame_player_x;
-	int		minigame_player_y;
-	int		minigame_collectibles;
-	int		minigame_collected;
 
 	void	*mlx;
 	void	*win;
