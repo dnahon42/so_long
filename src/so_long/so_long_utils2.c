@@ -20,7 +20,8 @@ void	flood_fill_player(char **map, int x, int y, t_data *data)
 {
 	if (!map || y < 0 || x < 0 || !map[y] || map[y][x] == '\0')
 		return ;
-	if (map[y][x] == '1' || map[y][x] == 'V' || map[y][x] == 'T')
+	if (map[y][x] == '1' || map[y][x] == 'V' || map[y][x] == 'T'
+		|| map[y][x] == 'E')
 		return ;
 	if (map[y][x] == 'E')
 		data->exit_found = 1;
