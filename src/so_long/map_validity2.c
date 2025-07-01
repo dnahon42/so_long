@@ -58,6 +58,7 @@ void	check_map_walls(t_data *data)
 	check_vertical_walls(data, width, height);
 	check_horizontal_walls(data, width, height);
 }
+
 void	check_map_size(t_data *data)
 {
 	int	i;
