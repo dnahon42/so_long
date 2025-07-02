@@ -15,16 +15,17 @@
 #include "../../includes/libft.h"
 #include "../../includes/so_long.h"
 #include "../../minilibx-linux/mlx.h"
-
 void	flood_fill_player(char **map, int x, int y, t_data *data)
 {
 	if (!map || y < 0 || x < 0 || !map[y] || map[y][x] == '\0')
 		return ;
-	if (map[y][x] == '1' || map[y][x] == 'V' || map[y][x] == 'T'
-		|| map[y][x] == 'E')
+	if (map[y][x] == '1' || map[y][x] == 'V' || map[y][x] == 'T')
 		return ;
 	if (map[y][x] == 'E')
+	{
 		data->exit_found = 1;
+		return ;
+	}
 	if (map[y][x] == 'C')
 		data->collectibles_found++;
 	map[y][x] = 'V';
