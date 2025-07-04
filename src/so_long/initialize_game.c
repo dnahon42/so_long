@@ -52,7 +52,6 @@ void	setup_hooks(t_data *data)
 	mlx_hook(data->win, 17, 0, (void *)close_window, data);
 	mlx_hook(data->win, 2, 1L << 0, unified_key_handler, data);
 }
-
 int	init_images(t_data *data)
 {
 	data->player = mlx_xpm_file_to_image(data->mlx, "assets/Player.xpm",
@@ -74,9 +73,11 @@ int	init_images(t_data *data)
 			&data->exit_width, &data->exit_height);
 	data->exit_opened = mlx_xpm_file_to_image(data->mlx,
 			"assets/Opened-Exit.xpm", &data->exit_width, &data->exit_height);
-	if (!data->player || !data->floor || !data->wall || !data->collectible
-		|| !data->exit)
-		return (write(2, "Error\nFailed to load images\n", 29), 0);
+	if (!data->player || !data->player_left || !data->enemy || !data->enemy_left
+		|| !data->floor || !data->wall || !data->collectible || !data->exit
+		|| !data->exit_opened)
+		return (write(2, "Error\nFailed to load images\n", 29),
+			close_window(data), 0);
 	return (1);
 }
 
