@@ -6,7 +6,7 @@
 /*   By: dnahon <dnahon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:28:45 by dnahon            #+#    #+#             */
-/*   Updated: 2025/07/01 14:29:42 by dnahon           ###   ########.fr       */
+/*   Updated: 2025/07/02 12:40:52 by dnahon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../../includes/libft.h"
 #include "../../includes/so_long.h"
 #include "../../minilibx-linux/mlx.h"
+
 void	flood_fill_player(char **map, int x, int y, t_data *data)
 {
 	if (!map || y < 0 || x < 0 || !map[y] || map[y][x] == '\0')

@@ -6,7 +6,7 @@
 /*   By: dnahon <dnahon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:26:53 by dnahon            #+#    #+#             */
-/*   Updated: 2025/06/30 14:31:08 by dnahon           ###   ########.fr       */
+/*   Updated: 2025/07/26 16:50:29 by dnahon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	initialize_game(t_data *data, char *map_file)
 	count_map_elements(data, &data->counts);
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (write(2, "Error\nFailed to initialize MLX\n", 32), 0);
+		return (free_map(data->map), write(2,
+				"Error\nFailed to initialize MLX\n", 32), 0);
 	if (!init_window(data) || !init_images(data))
 		return (0);
 	data->current_player_img = data->player;
@@ -52,6 +53,7 @@ void	setup_hooks(t_data *data)
 	mlx_hook(data->win, 17, 0, (void *)close_window, data);
 	mlx_hook(data->win, 2, 1L << 0, unified_key_handler, data);
 }
+
 int	init_images(t_data *data)
 {
 	data->player = mlx_xpm_file_to_image(data->mlx, "assets/Player.xpm",
